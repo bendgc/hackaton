@@ -19,10 +19,31 @@ class plateau :
             loc = (np.random.randint(0,self._dim - 3), np.random.randint(0,self._dim - 3))
             while self._plat[loc] != 0 :
                 loc = (np.random.randint(0,self._dim - 3), np.random.randint(0,self._dim - 3))
-            dim = (np.random.randint(3,10), np.random.randint(3,10))
-            j = 0
-            while self._plat[loc[0],loc[1]+j] != 1 :
-                j+= 1
+            dim = [np.random.randint(3, self._dim//2), np.random.randint(3,self._dim//2)]
+            j = -1
+            test = True
+            while test and j<dim[1] :
+                j += 1
+                if self._plat[loc[0],loc[1]+j] == 1 :
+                    test = False
+                if loc[1]+j+1 == self._dim :
+                    test = False 
+            if not test :
+                dim[1] = j
+            j = -1
+            test = True
+            while test and j<dim[0] :
+                j += 1
+                if self._plat[loc[0]+j,loc[1]] == 1 :
+                    test = False
+                if loc[0]+j+1 == self._dim :
+                    test = False 
+                    j -= 1
+            if not test :
+                dim[0] = j
+            print(loc, dim)
+            self.creer_salle(loc,dim)
+                
 
 
 
@@ -35,10 +56,10 @@ class plateau :
         plt.imshow(self._plat)
         plt.show()
 
-p = plateau(20)
-p.creer_salle((1,1),(5,5))
-p.creer_salle((6,7),(4,5))
-p.inserer_porte((1,1))
-p.afficher()
+p = plateau(50)
+#p.creer_salle((1,1),(5,5))
+#p.creer_salle((6,7),(4,5))
+#p.inserer_porte((1,1))
 p.generer_salles(3)
+p.afficher()
 
