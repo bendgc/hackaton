@@ -4,8 +4,10 @@ class plateau :
 
     def __init__(self, dim) :
         _dim = dim
-        plat = np.zeros((_dim,_dim))
-        plat[0][0] = ','
+        _plat = [[' ' for k in range(_dim)] for k in range(_dim)]
+
+
+plateau(4)
 
         
 
