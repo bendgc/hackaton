@@ -3,6 +3,7 @@ import numpy as np
 class plateau :
 
     def __init__(self, dim) :
+<<<<<<< HEAD
         self._dim = dim
         self._plat = np.zeros((self._dim,self._dim))
 
@@ -25,4 +26,13 @@ p = plateau(20)
 p.creer_salle((1,1),(5,5))
 p.creer_salle((6,7),(4,5))
 p.afficher()
+=======
+        _dim = dim
+        _plat = [[' ' for k in range(_dim)] for k in range(_dim)]
+
+
+plateau(4)
+
+        
+>>>>>>> Agathe
 
