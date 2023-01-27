@@ -10,7 +10,7 @@ class MainGame :
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        arc.set_background_color(arc.color.AMAZON)
+        #arc.set_background_color(arc.color.AMAZON)
 
     def on_key_press(self, key):
         "returns the direction wanted by the player"

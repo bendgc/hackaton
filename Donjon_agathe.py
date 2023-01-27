@@ -90,6 +90,23 @@ class Window(arcade.Window):
         self.corridors.draw()
         self.doors.draw()
         self.interiors.draw()
+    
+    def on_key_press(self, key):
+        if key == arcade.KEY.up:
+            dir = (0, -1)
+        if key == arcade.KEY.down : 
+            dir = (0, 1)
+        if key == arcade.KEY.left : 
+            dir= (-1, 0)
+        if key == arcade.KEY.right : 
+            dir = (1, 0)
+        
+        
+        
+        
+        
+               
+
 
         
 
@@ -103,22 +120,21 @@ if __name__ == "main":
     walls = WALLS()
     corridors = CORRIDORS()
 
-    perso = Pe.Perso()
+    name = input("Name?")
+    perso = Pe.Perso(name, vie = 500, attaque = 50)
     #val= Pe.Monster()
 
     plateau = Pl.Plateau()
 
     #initialisation
-    pos_init = (rd.randrange(X), rd.randrange(Y))
+    perso.position = Pe.position_initiale(plateau, X, Y)
+    
+    while perso.vivant : 
+        perso.nouvelle_position(plateau)
 
-
-
+    
     """
-    initialiser
-    pos_init = 
-
-    demander le nom du joueur 
-    afficher tableau ...
+        afficher tableau ...
     
     while perso vivant : 
         """
