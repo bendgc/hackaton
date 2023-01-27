@@ -1,3 +1,4 @@
+from random import randint 
 
 class Object:
     
@@ -5,7 +6,7 @@ class Object:
      'potion' : 'j', 'food' : 'f', 'water' : 'w', 'armor' : 'a'}
     
     
-    def __init__(self, position, name, value = 1):
+    def __init__(self, name, position, value = 1):
         self.position = position
         self.name = name
         self.value = value
@@ -27,7 +28,23 @@ class Object:
     
 
     def __repr__(self):
-        global cara
+        cara = {'sword' : '!', 'bow' : ')', 'gold' : '*',
+     'potion' : 'j', 'food' : 'f', 'water' : 'w', 'armor' : 'a'}
         return(cara[self.name])
+
+
+def generate_obj(coordinates):
+    obj = ['sword', 'bow', 'gold', 'potion', 'food', 'water', 'armor']
+    xmin, xmax, ymin, ymax = coordinates
+    x = randint(xmin, xmax)
+    y = randint(ymin, ymax)
+    i = randint(0,len(obj)-1) 
+    ob = obj[i]
+    if ob == 'potion' :
+        value = (randint(-5,5), randint(-5,5))
+    else : 
+        value = randint(1, 8)
+   
+    return(Object(ob, (x, y),value))
 
 
