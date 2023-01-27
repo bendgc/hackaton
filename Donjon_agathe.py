@@ -21,6 +21,12 @@ MATRICE_PLAT = p._plat
 
 BACKGROUND = arcade.color.BLACK
 X, Y = 600, 600    
+
+
+import matplotlib.pyplot as plt
+
+
+
 DOOR = "door.PNG"
 CORRIDOR = "corridor.PNG"
 WALL = "walls.PNG"
