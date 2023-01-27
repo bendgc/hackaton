@@ -1,19 +1,18 @@
 import interface_user
 
 class Perso():
-    def __init__(self, name, position, vie, attaque, bag):
+    def __init__(self, name, position, vie, attaque):
         self.name = name
         self.vie = vie
         self.attaque = attaque
-        self.vivant = True
+        self.vivant = (self.vie > 0)
         self.position = position
         self.bag = dict()
     
-    def nouvelle_direction (self, MainGame, key, plateau):
+    def nouvelle_direction (self, key, plateau):
         new_pos = self.position + interface_user.Maingame().on_key_press(key)
         if new_pos in (plateau.get_plat() !=1 ):
             self.position = new_pos
-
 
     def variation_vie(self, pdv):
         self.vie += pdv
@@ -31,7 +30,7 @@ class monster():
         self.figure = figure
         self.force = force
         self.vie = vie
-        self.vivant = True
+        self.vivant = (self.vie > 0)
         self.position = position
         self.speed = speed
 
