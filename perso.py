@@ -42,7 +42,15 @@ class monster():
         if abs(self.position[0]-player.position[0]) + abs(self.position[1] - player.position[1]) == 1:
             #follow
             pass
-
+    
+    def move(self, plateau):
+        "de simples allers retours pour l'instant"
+        while self.vivant :
+            while self.position in (plateau == 2):
+                self.position[0] += 1
+            self.position[0] -=1
+            while self.position in (plateau==2): 
+                self.position -= 1
 
 #combat : rapport de force; points d'attaque = points de vie en gros
 
