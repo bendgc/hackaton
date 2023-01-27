@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 class plateau :
 
     def __init__(self, dim) :
-<<<<<<< HEAD
         self._dim = dim
         self._plat = np.zeros((self._dim,self._dim), dtype=int)
 
