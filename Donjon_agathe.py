@@ -4,6 +4,8 @@ Platformer Template
 import arcade
 import numpy as np
 from plateau import plateau
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 DIM = 400
@@ -21,9 +23,9 @@ MATRICE_PLAT = p._plat
 
 BACKGROUND = arcade.color.BLACK
 X, Y = 600, 600    
-DOOR = "door.PNG"
-CORRIDOR = "corridor.PNG"
-WALL = "walls.PNG"
+DOOR = "blanc.PNG"
+CORRIDOR = "violet.png"
+WALL = "jaune.png"
         
     
 class DOORS(arcade.Sprite):
