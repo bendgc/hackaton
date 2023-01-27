@@ -74,7 +74,7 @@ class Window(arcade.Window):
         self.doors = arcade.SpriteList()
         self.corridors = arcade.SpriteList()
         self.interiors = arcade.SpriteList()
-        self.hero = arcade.SpriteList()
+        self.hero = HERO(100,100)
 
 
     def setup(self):
@@ -91,7 +91,6 @@ class Window(arcade.Window):
         for coord in np.argwhere(MATRICE_PLAT == 4):
             self.interiors.append(INTS(coord[0], coord[1]))
 
-        self.hero.append(HERO(100,100))
 
     def on_draw(self):
         arcade.start_render()

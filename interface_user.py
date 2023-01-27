@@ -1,5 +1,4 @@
 import arcade as arc
-import pygame as pg
 import perso as P
 
 def near(pos1, pos2):
