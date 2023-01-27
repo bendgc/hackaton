@@ -2,31 +2,20 @@ import interface_user
 import random as rd
 
 class Perso():
-    def __init__(self, name, vie, attaque):
+    def __init__(self, name, position, vie, attaque):
         self.name = name
         self.vie = vie
         self.attaque = attaque
+        self.vivant = (self.vie > 0)
+        self.position = position
         self.vivant = True
         self.position = (0, 0)
         self.bag = dict()
     
-    def position_initiale(self, plateau, X, Y): 
-        pos_init = (rd.randrange(X), rd.randrange(Y))
-        while pos_init in (plateau !=2) : 
-            pos_init = (rd.randrange(X), rd.randrange(Y))
-        return pos_init
-
-    def actualize_pos(self, dir, plateau):
-        new_pos = self.position + dir
-        if new_pos in (plateau.get_plat() >= 3) :
-            self.position = new_pos
-
-
-    def nouvelle_position (self, key, plateau):
+    def nouvelle_direction (self, MainGame, key, plateau):
         new_pos = self.position + interface_user.Maingame().on_key_press(key)
         if new_pos in (plateau.get_plat() >= 3 ) :
             self.position = new_pos
-
 
     def variation_vie(self, pdv):
         self.vie += pdv
@@ -44,7 +33,7 @@ class monster():
         self.figure = figure
         self.force = force
         self.vie = vie
-        self.vivant = True
+        self.vivant = (self.vie > 0)
         self.position = position
         self.speed = speed
 

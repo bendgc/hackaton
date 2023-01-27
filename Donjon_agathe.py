@@ -22,9 +22,8 @@ p.creer_salle((10, 10), (100, 100))
 p.creer_salle((260, 170), (100, 100))
 p.inserer_porte((110, 60))
 p.inserer_porte((260, 200))
-# p.generer_salles(5)
+#p.generer_salles(5)
 p.generer_couloir((110, 60), (260, 200))
-p.afficher()
 MATRICE_PLAT = p._plat
 
 
@@ -34,12 +33,19 @@ X, Y = 600, 600
 DOOR = "blanc.PNG"
 CORRIDOR = "violet.png"
 WALL = "jaune.png"
-INT = "orange.png"        
+INT = "orange.png" 
+MINION = "soup3.png"       
     
 class DOORS(arcade.Sprite):
     def __init__(self, x, y):
         super().__init__(DOOR)
         print("door", x, y)
+        self.center_x, self.center_y = x, y
+
+class HERO(arcade.Sprite):
+    def __init__(self, x, y):
+        super().__init__(MINION)
+        print("minion", x, y)
         self.center_x, self.center_y = x, y
 
 class CORRIDORS(arcade.Sprite):
@@ -68,6 +74,7 @@ class Window(arcade.Window):
         self.doors = arcade.SpriteList()
         self.corridors = arcade.SpriteList()
         self.interiors = arcade.SpriteList()
+        self.hero = HERO(100,100)
 
 
     def setup(self):
@@ -84,12 +91,15 @@ class Window(arcade.Window):
         for coord in np.argwhere(MATRICE_PLAT == 4):
             self.interiors.append(INTS(coord[0], coord[1]))
 
+
     def on_draw(self):
         arcade.start_render()
         self.walls.draw()
         self.corridors.draw()
         self.doors.draw()
         self.interiors.draw()
+        self.hero.draw()
+
     
     def on_key_press(self, key):
         if key == arcade.KEY.up:
@@ -134,7 +144,11 @@ if __name__ == "main":
 
     
     """
-        afficher tableau ...
+    initialiser
+    pos_init = 
+
+    demander le nom du joueur 
+    afficher tableau ...
     
     while perso vivant : 
         """

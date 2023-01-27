@@ -66,7 +66,8 @@ class Plateau:
             my = 2
         else:
             my = -2
-        l = [mx for k in range(dx)] + [my for k in range(dy)]
+        cassure = np.random.randint(2,dx)
+        l = [mx for k in range(dx-cassure)] + [my for k in range(dy)] + [mx for k in range(cassure)]
         i, j = porte1
         for mouv in l:
             if mouv == 1:
@@ -91,4 +92,4 @@ p.inserer_porte((10, 6))
 p.inserer_porte((26, 20))
 # p.generer_salles(5)
 p.generer_couloir((10, 6), (26, 20))
-p.afficher()
+#p.afficher()
