@@ -9,8 +9,11 @@ class Perso():
         self.position = position
         self.bag = dict()
     
-    def nouvelle_direction (self, MainGame, symbol):
-        self.position += interface_user.Maingame().on_key_press(symbol)
+    def nouvelle_direction (self, MainGame, key, plateau):
+        new_pos = self.position + interface_user.Maingame().on_key_press(key)
+        if new_pos in (plateau.get_plat() !=1 ):
+            self.position = new_pos
+
 
     def variation_vie(self, pdv):
         self.vie += pdv
@@ -22,6 +25,7 @@ class Perso():
 
 class monster():
     "valérie, le monstre qui va vite"
+    "Thierry, le monstre qui tape fort"
     def __init__(self, name, position, figure, force, vie, speed):
         self.name = name
         self.figure = figure
