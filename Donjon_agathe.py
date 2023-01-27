@@ -1,16 +1,23 @@
 """
 Platformer Template
 """
+#import des modules de base
 import arcade
 import numpy as np
-from plateau import plateau
+import random as rd
 import matplotlib.pyplot as plt
-import resize
+import random as rd
+
+#imports de notre code
+import perso as Pe
+import interface_user as I
+import plateau as Pl
+import objects as O
 
 
 DIM = 400
 
-p = plateau(DIM)
+p = Pl.Plateau(DIM)
 p.creer_salle((10, 10), (100, 100))
 p.creer_salle((260, 170), (100, 100))
 p.inserer_porte((110, 60))
@@ -99,3 +106,30 @@ class Window(arcade.Window):
 window = Window()
 window.setup()
 arcade.run()
+
+if __name__ == "main":
+    doors = DOORS()
+    window = Window()
+    walls = WALLS()
+    corridors = CORRIDORS()
+
+    perso = Pe.Perso()
+    #val= Pe.Monster()
+
+    plateau = Pl.Plateau()
+
+    #initialisation
+    pos_init = (rd.randrange(X), rd.randrange(Y))
+
+
+
+    """
+    initialiser
+    pos_init = 
+
+    demander le nom du joueur 
+    afficher tableau ...
+    
+    while perso vivant : 
+        """
+    pass

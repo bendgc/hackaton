@@ -2,11 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class plateau:
+class Plateau:
 
     def __init__(self, dim):
         self._dim = dim
         self._plat = np.zeros((self._dim, self._dim), dtype=int)
+
+    def get_plat(self):
+        return self._plat
 
     def creer_salle(self, origine, dim):
         self._plat[origine[0], origine[1]:origine[1]+dim[1]] = 1
@@ -82,7 +85,7 @@ class plateau:
         plt.show()
 
 
-p = plateau(50)
+p = Plateau(50)
 p.creer_salle((1, 1), (10, 10))
 p.creer_salle((26, 17), (10, 10))
 p.inserer_porte((10, 6))
