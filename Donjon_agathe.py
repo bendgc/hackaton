@@ -8,9 +8,14 @@ from plateau import plateau
 
 DIM = 400
 
-PLAT = plateau(DIM)
-PLAT.creer_salle((100, 100), (200, 100))
-MATRICE_PLAT = PLAT._plat
+p = plateau(DIM)
+p.creer_salle((10, 10), (100, 100))
+p.creer_salle((260, 170), (100, 100))
+p.inserer_porte((100, 60))
+p.inserer_porte((260, 200))
+# p.generer_salles(5)
+p.generer_couloir((100, 60), (260, 200))
+MATRICE_PLAT = p._plat
 
 
 
