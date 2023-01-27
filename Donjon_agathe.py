@@ -12,10 +12,11 @@ DIM = 400
 p = plateau(DIM)
 p.creer_salle((10, 10), (100, 100))
 p.creer_salle((260, 170), (100, 100))
-p.inserer_porte((100, 60))
+p.inserer_porte((110, 60))
 p.inserer_porte((260, 200))
 # p.generer_salles(5)
-p.generer_couloir((100, 60), (260, 200))
+p.generer_couloir((110, 60), (260, 200))
+p.afficher()
 MATRICE_PLAT = p._plat
 
 

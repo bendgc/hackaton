@@ -25,6 +25,7 @@ class Perso():
 
 class monster():
     "valérie, le monstre qui va vite"
+    "Thierry, le monstre qui tape fort"
     def __init__(self, name, position, figure, force, vie, speed):
         self.name = name
         self.figure = figure
@@ -41,13 +42,18 @@ class monster():
         if abs(self.position[0]-player.position[0]) + abs(self.position[1] - player.position[1]) == 1:
             #follow
             pass
-
+    
+    def move(self, plateau):
+        "de simples allers retours pour l'instant"
+        while self.vivant :
+            while self.position in (plateau == 2):
+                self.position[0] += 1
+            self.position[0] -=1
+            while self.position in (plateau==2): 
+                self.position -= 1
 
 #combat : rapport de force; points d'attaque = points de vie en gros
 
-def attaque_perso_combat(monster, Perso):
-    monster.vie -= Perso.attaque()
-    
-def attaque_monster_combat(monster, Perso):
-    Perso.variation_vie(-monster.force)
+def attaque_combat(vie, attaque):
+    vie -= attaque
 
