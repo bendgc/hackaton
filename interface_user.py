@@ -39,4 +39,3 @@ class MainGame :
         arc.draw_text('Strenght :- '+ str(player.force),150.0,500.0,
                          arc.color.BLUE, 20, 180, 'left')
     
-    
