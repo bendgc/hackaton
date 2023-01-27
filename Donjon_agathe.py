@@ -124,7 +124,7 @@ if __name__ == "main":
 
     """
     initialiser
-    pos_init = 
+    pos_init =
 
     demander le nom du joueur 
     afficher tableau ...
