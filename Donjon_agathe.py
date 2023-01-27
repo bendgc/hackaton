@@ -4,7 +4,6 @@ Platformer Template
 import arcade
 import numpy as np
 from plateau import plateau
-import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -13,10 +12,11 @@ DIM = 400
 p = plateau(DIM)
 p.creer_salle((10, 10), (100, 100))
 p.creer_salle((260, 170), (100, 100))
-p.inserer_porte((100, 60))
+p.inserer_porte((110, 60))
 p.inserer_porte((260, 200))
 # p.generer_salles(5)
-p.generer_couloir((100, 60), (260, 200))
+p.generer_couloir((110, 60), (260, 200))
+p.afficher()
 MATRICE_PLAT = p._plat
 
 
@@ -26,7 +26,7 @@ X, Y = 600, 600
 DOOR = "blanc.PNG"
 CORRIDOR = "violet.png"
 WALL = "jaune.png"
-        
+INT = "orange.png"        
     
 class DOORS(arcade.Sprite):
     def __init__(self, x, y):
@@ -44,6 +44,11 @@ class WALLS(arcade.Sprite):
         super().__init__(WALL)
         self.center_x, self.center_y = x, y
 
+class INTS(arcade.Sprite):
+    def __init__(self, x, y):
+        super().__init__(INT)
+        self.center_x, self.center_y = x, y
+
         
 class Window(arcade.Window):
     
@@ -54,10 +59,10 @@ class Window(arcade.Window):
         self.walls = arcade.SpriteList()
         self.doors = arcade.SpriteList()
         self.corridors = arcade.SpriteList()
+        self.interiors = arcade.SpriteList()
 
 
     def setup(self):
-        print(np.argwhere(MATRICE_PLAT ==1))
         for coord in np.argwhere(MATRICE_PLAT == 1):
             self.walls.append(WALLS(coord[0], coord[1]))
         
@@ -68,11 +73,15 @@ class Window(arcade.Window):
         for coord in np.argwhere(MATRICE_PLAT == 3):
             self.corridors.append(CORRIDORS(coord[0], coord[1]))
 
+        for coord in np.argwhere(MATRICE_PLAT == 4):
+            self.interiors.append(INTS(coord[0], coord[1]))
+
     def on_draw(self):
         arcade.start_render()
         self.walls.draw()
         self.corridors.draw()
         self.doors.draw()
+        self.interiors.draw()
 
         
 

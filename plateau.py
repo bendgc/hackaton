@@ -64,7 +64,6 @@ class plateau:
         else:
             my = -2
         l = [mx for k in range(dx)] + [my for k in range(dy)]
-        np.random.shuffle(l)
         i, j = porte1
         for mouv in l:
             if mouv == 1:
