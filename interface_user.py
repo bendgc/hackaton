@@ -26,16 +26,14 @@ class MainGame :
 
     def fight_monster(self, key, player, monster):
         if monster.position == player.position : 
-            P.attaque_perso_combat(player, monster)
+            attaque_combat(player.vie, monster.attaque)
         if near(player.position, monster.position):
             if key == arc.KEY.SPACE :
-                P.attaque_monstre_perso(player, monster)
+                attaque_combat(monster.vie, player.attaque)
 
     def on_draw(self, player):
         "display life and strenght"
         arc.draw_text('Life :- '+ str(player.vie),150.0,500.0,
                          arc.color.RED, 20, 180, 'left')
         arc.draw_text('Strenght :- '+ str(player.force),150.0,500.0,
-                         arc.color.BLUE, 20, 180, 'left')
-    
-    
+                         arc.color.BLUE, 20, 180, 'left')    
