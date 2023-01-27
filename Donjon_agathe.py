@@ -55,7 +55,6 @@ class Window(arcade.Window):
             self.walls.append(WALLS(coord[0], coord[1]))
         
         for coord in np.argwhere(MATRICE_PLAT == 2):
-            print("coords")
             self.doors.append(DOORS(coord[0], coord[1]))
         
         for coord in np.argwhere(MATRICE_PLAT == 3):
@@ -66,8 +65,6 @@ class Window(arcade.Window):
         self.walls.draw()
         self.corridors.draw()
         self.doors.draw()
-
-        
 
 window = Window()
 window.setup()
