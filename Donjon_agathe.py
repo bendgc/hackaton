@@ -3,24 +3,19 @@ Platformer Template
 """
 import arcade
 import numpy as np
-
-# --- Constants
-SCREEN_TITLE = "Le jeu du donjon"
-
-SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 500
-
-DIM = 500
-
-MATRICE_PLAT = plateau(DIM)
+from plateau import plateau
 
 
-import arcade
-import math
-import random
+DIM = 400
+
+PLAT = plateau(DIM)
+PLAT.creer_salle((100, 100), (200, 100))
+MATRICE_PLAT = PLAT._plat
+
+
 
 BACKGROUND = arcade.color.BLACK
-X, Y = 800, 800    
+X, Y = 600, 600    
 DOOR = "door.PNG"
 CORRIDOR = "corridor.PNG"
 WALL = "walls.PNG"
@@ -29,6 +24,7 @@ WALL = "walls.PNG"
 class DOORS(arcade.Sprite):
     def __init__(self, x, y):
         super().__init__(DOOR)
+        print("door", x, y)
         self.center_x, self.center_y = x, y
 
 class CORRIDORS(arcade.Sprite):
@@ -42,11 +38,7 @@ class WALLS(arcade.Sprite):
         self.center_x, self.center_y = x, y
 
         
-
-
-
 class Window(arcade.Window):
-
     
     def __init__(self):
         super().__init__(X, Y, "Donjon")
@@ -56,24 +48,25 @@ class Window(arcade.Window):
         self.doors = arcade.SpriteList()
         self.corridors = arcade.SpriteList()
 
+
     def setup(self):
-
+        print(np.argwhere(MATRICE_PLAT ==1))
         for coord in np.argwhere(MATRICE_PLAT == 1):
-            self.walls.append = WALLS(coord[0], coord[1])
-
+            self.walls.append(WALLS(coord[0], coord[1]))
         
         for coord in np.argwhere(MATRICE_PLAT == 2):
-            self.doors.append = WALLS(coord[0], coord[1])
+            print("coords")
+            self.doors.append(DOORS(coord[0], coord[1]))
         
-        for i in np.argwhere(MATRICE_PLAT == 3):
-            self.corridors.append = WALLS(np.argwhere(MATRICE_PLAT == 1)
+        for coord in np.argwhere(MATRICE_PLAT == 3):
+            self.corridors.append(CORRIDORS(coord[0], coord[1]))
 
     def on_draw(self):
         arcade.start_render()
         self.walls.draw()
         self.corridors.draw()
         self.doors.draw()
-        
+
         
 
 window = Window()
