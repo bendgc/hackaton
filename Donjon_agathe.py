@@ -8,9 +8,14 @@ from plateau import plateau
 
 DIM = 400
 
-PLAT = plateau(DIM)
-PLAT.creer_salle((100, 100), (200, 100))
-MATRICE_PLAT = PLAT._plat
+p = plateau(DIM)
+p.creer_salle((10, 10), (100, 100))
+p.creer_salle((260, 170), (100, 100))
+p.inserer_porte((100, 60))
+p.inserer_porte((260, 200))
+# p.generer_salles(5)
+p.generer_couloir((100, 60), (260, 200))
+MATRICE_PLAT = p._plat
 
 
 
@@ -58,13 +63,8 @@ class Window(arcade.Window):
             print("coords")
             self.doors.append(DOORS(coord[0], coord[1]))
         
-<<<<<<< HEAD
-        for i in np.argwhere(MATRICE_PLAT == 3):
-            self.corridors.append = WALLS(np.argwhere(MATRICE_PLAT == 1))
-=======
         for coord in np.argwhere(MATRICE_PLAT == 3):
             self.corridors.append(CORRIDORS(coord[0], coord[1]))
->>>>>>> 2ebce5cb195203d72cca787f1704f4bbfa23f8bc
 
     def on_draw(self):
         arcade.start_render()
