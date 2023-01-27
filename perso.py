@@ -42,9 +42,6 @@ class monster():
 
 #combat : rapport de force; points d'attaque = points de vie en gros
 
-def attaque_perso_combat(monster, Perso):
-    monster.vie -= Perso.attaque()
-    
-def attaque_monster_combat(monster, Perso):
-    Perso.variation_vie(-monster.force)
+def attaque_combat(vie, attaque):
+    vie -= attaque
 
