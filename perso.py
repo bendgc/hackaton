@@ -25,6 +25,7 @@ class Perso():
 
 class monster():
     "valérie, le monstre qui va vite"
+    "Thierry, le monstre qui tape fort"
     def __init__(self, name, position, figure, force, vie, speed):
         self.name = name
         self.figure = figure
