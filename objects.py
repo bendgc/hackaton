@@ -1,5 +1,5 @@
 
-class Object() :
+class Object:
     
     cara = {'sword' : '!', 'bow' : ')', 'gold' : '*',
      'potion' : 'j', 'food' : 'f', 'water' : 'w', 'armor' : 'a'}
